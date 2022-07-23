@@ -1,28 +1,25 @@
-//                       _oo0oo_
-//                      o8888888o
-//                      88" . "88
-//                      (| -_- |)
-//                      0\  =  /0
-//                    ___/`---'\___
-//                  .' \\|     |// '.
-//                 / \\|||  :  |||// \
-//                / _||||| -:- |||||- \
-//               |   | \\\  -  /// |   |
-//               | \_|  ''\---/''  |_/ |
-//               \  .-\__  '-'  ___/-. /
-//             ___'. .'  /--.--\  `. .'___
-//          ."" '<  `.___\_<|>_/___.' >' "".
-//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-//         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
-//                       `=---='
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// - Index del buda---LEVANTA EL SERVIDOR
+
+const {getAllPokemons} = require('./src/controllers/getAllPokemons');
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+//const { getApiInfo } = require('./src/controllers/getApiInfo');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+
+
+// Puedes ir cambiándolo según necesites.
+conn.sync({ force: false}).then(() => { // PROMESA---+ { force:true }:
+// > Básicamente gestiona el almacenamiento viene con una sentencia “Force” y puede tener 2 valores.
+// 1- false : Mantiene almacenada la información de la base de datos de manera continua
+// 2- true: Cada vez que inicies todos los datos se verán reiniciados
+
   server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  console.log('%s listening at 3001'); // eslint-disable-line no-console
+     
+  // getApiInfo();
+
   });
 });
+
+
